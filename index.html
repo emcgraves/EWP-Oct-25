@@ -36,9 +36,13 @@
   <p id="greeting">Let's make your page come alive ✨</p>
   <button id="themeBtn">🌚 Toggle Dark Mode</button>
   
-  <h2>Click Counter 🖱️</h2>
+  <h2>Click Counter 🧮</h2>
   <p>You’ve clicked the button <span id="clickCount">0</span> times!</p>
   <button id="clickButton">Click me!</button>
+
+  <h2>Quote of the Day 💬</h2>
+  <p id="quote">Click the button for some inspiration!</p>
+  <button id="quoteBtn">✨ New Quote</button>
 
   <script>
     const btn = document.getElementById('themeBtn');
@@ -85,12 +89,24 @@
       display.textContent = count; // update text
       document.body.style.backgroundColor = getRandomColour(); // random background colour
     });
-    
-  // Add an event listener to the button
-  button.addEventListener("click", function() {
-  count++; // increase the counter
-  display.textContent = count; // show the new value
-  });
+
+ // Quotes
+  const quotes = [
+  "🌈 Believe in yourself — you’re capable of amazing things!",
+  "🌿 Small steps every day lead to big changes.",
+  "🌟 Keep going, even when it feels tough — progress happens quietly.",
+  "☀️ Be kind to yourself — you’re learning and growing.",
+  "💫 Creativity takes courage — keep experimenting!"
+];
+
+const quoteDisplay = document.getElementById("quote");
+const quoteBtn = document.getElementById("quoteBtn");
+
+quoteBtn.addEventListener("click", () => {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  quoteDisplay.textContent = quotes[randomIndex];
+});
+
     
   </script>
 </body>
