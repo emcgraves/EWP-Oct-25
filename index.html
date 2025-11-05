@@ -13,6 +13,7 @@
       background-color: #E8D1E4;
       color: #333;
     }
+    
     h1 { font-size: 2.5rem; margin-bottom: 1rem; }
     button {
       padding: 1rem 2rem;
@@ -34,6 +35,9 @@
   <h1 id="welcome">🌈 Welcome!</h1>
   <p id="greeting">Let's make your page come alive ✨</p>
   <button id="themeBtn">🌚 Toggle Dark Mode</button>
+  <h2>Click Counter 🖱️</h2>
+    <p>You’ve clicked the button <span id="clickCount">0</span> times!</p>
+    <button id="clickButton">Click me!</button>
 
   <script>
     const btn = document.getElementById('themeBtn');
@@ -56,6 +60,20 @@
     else if (hour < 18) message = "🌤️ Good afternoon!";
     else message = "🌙 Good evening!";
     document.getElementById('greeting').textContent = message;
+
+    // Start the counter at 0
+    let count = 0;
+
+   // Find the elements in the page
+   const button = document.getElementById("clickButton");
+   const display = document.getElementById("clickCount");
+
+  // Add an event listener to the button
+  button.addEventListener("click", function() {
+  count++; // increase the counter
+  display.textContent = count; // show the new value
+  });
+    
   </script>
 </body>
 </html>
