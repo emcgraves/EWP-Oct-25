@@ -20,7 +20,7 @@
       font-size: 1.2rem;
       border: none;
       border-radius: 10px;
-      background-color: #ffd54f;
+      background-color: #7dcbff;
       cursor: pointer;
       transition: background-color 0.3s ease;
     }
@@ -35,9 +35,10 @@
   <h1 id="welcome">🌈 Welcome!</h1>
   <p id="greeting">Let's make your page come alive ✨</p>
   <button id="themeBtn">🌚 Toggle Dark Mode</button>
+  
   <h2>Click Counter 🖱️</h2>
-    <p>You’ve clicked the button <span id="clickCount">0</span> times!</p>
-    <button id="clickButton">Click me!</button>
+  <p>You’ve clicked the button <span id="clickCount">0</span> times!</p>
+  <button id="clickButton">Click me!</button>
 
   <script>
     const btn = document.getElementById('themeBtn');
@@ -68,6 +69,23 @@
    const button = document.getElementById("clickButton");
    const display = document.getElementById("clickCount");
 
+   // Function to generate a random colour
+   function getRandomColour() {
+   const letters = '0123456789ABCDEF';
+   let colour = '#';
+   for (let i = 0; i < 6; i++) {
+      colour += letters[Math.floor(Math.random() * 16)];
+     }
+    return colour;
+    }
+    
+  // When the button is clicked:
+    button.addEventListener("click", function() {
+      count++; // increase counter
+      display.textContent = count; // update text
+      document.body.style.backgroundColor = getRandomColour(); // random background colour
+    });
+    
   // Add an event listener to the button
   button.addEventListener("click", function() {
   count++; // increase the counter
